@@ -1,0 +1,40 @@
+<!--「toeicword/base.html」を拡張してregistration.htmlを作成するという宣言である-->
+{% extends 'toeicword/base.html' %}
+<!--以下コード：base.htmlのタイトルにRegistrationを代入する-->
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<article class="registration">
+    <div class="page-name">
+        <h1>英単語登録フォーム</h1>
+    </div>
+    <p style="margin:0; padding:0;">複数の日本語訳を入力する際は、全角スペースで区切ってください。</p>
+<!--15~21:後述するmessagesがあれば表示するようにしてある。
+    messagesは、特定の動作が完了下場合やしなかった場合に、任意の言葉を表示させることができる-->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+<!--24~40:単語を登録するためのフォームである-->
+    <div class="registration-form">
+    <form action="{% url 'wordregistration' %}" method="post">
+        <!--28行意味：この行は、クロスサイトクエストフォージェリ
+            というウェブアプリケーションの脆弱性を突く攻撃を防ぐためのもの-->
+        {% csrf_token %}
+        <!--for文：RegistrationFromに宣言させている変数を一つずつ取り出している。-->
+        {% for field in form %}
+            <div clss="field">
+        <!--下：「{{ field.label_tag }}」は、変数1つひとつに設定したlabelを表示する。
+            「{[ field ]}」は、ユーザが入力する部分を表示する。-->
+                {{ field.label_tag }}{{ field }}
+            </div>
+            {{ field.errors }}
+        {% endfor %}
+        <input type="submit" value="registration" style="margin: 5px 0">
+    </form>
+    </div>
+</article>
+{% endblock %}

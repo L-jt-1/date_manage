@@ -1,0 +1,18 @@
+Mechanic on duty is Efren Limbaco.
+Client is Trucking Corporation.
+Vehicle type is commercial truck.
+
+Replaced and balanced tire is 12000.
+Installed new passenger door lock is 4800.
+
+What is the purpose of the form?
+To give details about work on a vehicle
+To ask about purchasing a vehicle
+To request a correction to a bill
+To schedule maintenance work
+
+What action is mentioned?
+Repairing an axle
+Painting a truck
+Changing oil
+Replacing a lock

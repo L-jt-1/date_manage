@@ -1,0 +1,40 @@
+{% extends 'toeicword/base.html' %}
+<!--base.htmlを拡張して本htmlを作成という宣言を行う-->
+
+{% block title %}Word Delete{% endblock %}
+<!--titleにWord Deleteと表示させるようにtitleブロックの中に代入する-->
+
+{% block content %}
+<article class="word-delete">
+    <div class="page-name">
+        <h1>単語の削除</h1>
+    </div>
+    <!--13~22：削除が成功したか、失敗したかを知らせるメッセージを表示させる-->
+    {% if messages %}
+    <div class="message">
+        <ul>
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+<!--24~34：実際に単語を削除するための機能-->
+{% if del_en_word != '' and del_jp_word != '' %}<!--削除する単語が存在かどうかを確認する-->
+<div class="word-delete-form">
+    <h3 style="margin: 0;">本当に削除しますか？</h3>
+    <form action="{% url 'worddelete' %}" method="post">
+    <!--フォームタグactionには、後に作成するworddeleteのURLを代入している-->
+        {% csrf_token %}<!--webページの脆弱性を突いた攻撃を防ぐため-->
+        <!--下二行：削除した単語を表示する-->
+        <p style="margin: 0;">English : {{ del_en_word }}</p>
+        <p style="margin: 0;">日本語 : {{ del_jp_word }}</p>
+        <input hidden type="text" name="en_word" value="{{ del_en_word }}">
+        <input type="submit" value="削除" style="margin: 5px 0;">
+    </form>
+</div>
+{% endif %}
+</article>
+{% endblock %}
+
+

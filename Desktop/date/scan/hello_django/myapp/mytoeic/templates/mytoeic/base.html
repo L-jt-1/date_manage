@@ -1,0 +1,27 @@
+<!--appないで表示されるwebページの基本となる-->
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'mytoeic/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="app-name">
+                <h1>Mytoeic on Django</h1>
+            </div>
+        </header>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        <footer>
+            <div class="text-right">
+                <p>CopyRight 2022:Liu</p>
+            </div>
+        </footer>
+    </body>
+</html>
