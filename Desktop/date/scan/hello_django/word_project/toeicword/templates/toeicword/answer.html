@@ -1,0 +1,35 @@
+{% extends 'toeicword/base.html' %}
+<!--上：「base.htmlを拡張してanswer.htmlを作成します」という宣言を行っている-->
+
+{% block title %}Answer{% endblock %}
+<!--タイトルにAnswerを代入する-->
+
+{% block content %}
+<article class='answer'>
+    <div class="page-name">
+        <h1>単語帳</h1>
+    </div>
+    <!--13~26:問題や解答するフォームを表示する-->
+    {% if answer_message == '' %}
+    <div class="answer-form" >
+        <form action="{% url 'answer' %}" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <p style="margin: 5px 0">問題: {{ en_word }}</p>
+                <input hidden type="text" name="en_problem" value="{{ en_word }}">
+            </div>
+            <div class="field">
+                <label>解答</label><input type="text" name="jp_answer"> 
+            </div>
+            <input type="submit" value="解答" style="margin: 5px 0">
+        </form>
+    </div>
+    <!--28~33:問題に解答した後に、正解佳不正解かをmessagesによって表示する-->
+    {% else %}
+    <div class="answer-and-review">
+        <p>{{ answer_message }}</p>
+        <a href="{% url 'answer' %}">次の問題へ</a>
+    </div>
+    {% endif %}
+</article>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'mytoeic/base.html' %}
+
+{% block title %}N Word Delete{% endblock %}
+
+{% block content %}
+<article class="word-delete">
+  <div class="page-name">
+    <h1>単語の削除</h1>
+  </div>
+  {% if messages %}
+    <div class="message">
+      <ul>
+        {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if del_en_word != '' and del_jp_word != '' %}
+    <div class="word-delete-form">
+      <h3 style="margin: 0;">本当に削除しますか？</h3>
+      <form action="{% url 'n_worddelete' %}" method="post">
+        
+        {% csrf_token %}
+        <p style="margin: 0;">English : {{ del_en_word }}&nbsp;/&nbsp; 品詞 : {{ del_word_type}}</p>
+        <p style="margin: 0;">日本語 : {{ del_jp_word }}</p>
+        <input hidden type="text" name="en_word" value="{{ del_en_word }}">
+        <input type="submit" value="削除" style="margin: 5px 0;">
+      </form>
+    </div>
+  {% endif %}
+</article>
+{% endblock %}

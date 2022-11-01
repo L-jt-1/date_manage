@@ -1,0 +1,196 @@
+/*このCSSファイルはウェbページを装飾するためのファイルです.
+
+/* Copyright: Niwakoma */
+body {
+    margin: 0;
+    font-family: 'メイリオ', 'Hiragino Kaku Pro', sans-serif;
+    line-height: 1.5;
+  }
+  
+  /* ===== header ====== */
+  header {
+    margin: 0;
+    padding: 0;
+  }
+  header .app-name {
+    margin: 0 auto;
+    padding: 5px 0;
+  }
+  header .app-name h1 {
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: 1024px) {
+    header .app-name {
+      width: 1000px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    header .app-name {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    header .app-name {
+      max-width: 100%;
+    }
+  }
+  
+  /* ====== menu ===== */
+  .menu {
+    margin: 0;
+    padding: 0;
+    background-color: #EAEAEA
+  }
+  .menu-inner {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .menu-inner ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EAEAEA;
+  }
+  .menu-inner ul li {
+    float: left;
+  }
+  .menu-inner ul li a {
+    display: block;
+    color: #101010;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+  .menu-inner ul li:hover {
+    background-color: #DADADA;
+  }
+  @media (min-width: 1024px) {
+    .menu-inner {
+      width: 1000px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .menu-inner {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .menu-inner {
+      max-width: 100%;
+    }
+  }
+  
+  /* ===== content ==== */
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+  .index, .detail, .registration,
+  .answer, .word-edit, .word-delete {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .content .page-name {
+    margin: 0;
+    padding: 0;
+  }
+  .content .page-name h1 {
+    margin: 0;
+    padding: 0;
+  }
+  /* --- index.html --- */
+  
+  /* --- word_list.html --- */
+  .word-detail {
+    margin: 0;
+    padding: 0;
+  }
+  .word-detail .list {
+    display: flex;
+    border-top: solid 3px #EAEAEA;
+  }
+  .word-detail .list p {
+    margin: 5px;
+    padding: 0;
+  }
+  .word-detail .list .jump {
+    padding: 0;
+    width: 10%;
+    background-color: #EAEAEA;
+    text-align: center;
+  }
+  .word-detail .list p a {
+    padding: 5px;
+    color: #101010;
+    text-decoration: none;
+  }
+  .word-detail .list .jump:hover {
+    background-color: #DADADA;
+  }
+  /* --- registration.html --- */
+  .registration-form {
+    margin: 0;
+    padding: 0;
+  }
+  .registration-form .field {
+    margin: 5px 0;
+    padding: 0;
+  }
+  /* --- answer-form --- */
+  .answre-form {
+    margin: 0;
+    padding:0;
+  }
+  /* --- word_edit.html --- */
+  .word-edit-form {
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: 1024px) {
+    .index, .detail, .registration,
+    .answer, .word-edit, .word-delete {
+      width: 1000px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .index, .detail, .registration,
+    .answer, .word-edit, .word-delete {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .index, .detail, .registration,
+    .answer, .word-edit, .word-delete {
+      max-width: 100%;
+    }
+  }
+  
+  
+  /* ==== footer ===== */
+  footer {
+    margin: 0;
+    padding: 0;
+    border-top: solid 3px #EAEAEA;
+  }
+  .text-right {
+    margin: 0 auto;
+    padding: 10px;
+  }
+  @media (min-width: 1024px) {
+    .text-right {
+      width: 1000px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .text-right {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .text-right {
+      max-width: 100%;
+    }
+  }
+  

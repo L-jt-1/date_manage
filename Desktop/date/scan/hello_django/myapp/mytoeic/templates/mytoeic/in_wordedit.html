@@ -1,0 +1,31 @@
+{% extends 'mytoeic/base.html' %}
+
+{% block title %}In Word Edit{% endblock %}
+
+{% block content %}
+<article class="word-edit">
+  <div class="page-name">
+    <h1>単語の編集</h1>
+  </div>
+  {% if messages %}
+    <div class="message">
+      <ul>
+        {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if ed_en_word != '' and ed_jp_word != '' %}
+    <div class="word-edit-form">
+      <form action="{% url 'in_wordedit' %}" method="post">
+        {% csrf_token %}
+        <p style="margin: 0;">English : {{ ed_en_word }} &nbsp;/&nbsp; 品詞 : {{ ed_word_type}}</p>
+        <label>日本語 : </label><input type="text" name="jp_word" value="{{ ed_jp_word }}">
+        <input hidden type="text" name="en_word" value="{{ ed_en_word }}"><br>
+        <input type="submit" value="編集" style="margin: 5px 0;">
+      </form>
+    </div>
+  {% endif %}
+</article>
+{% endblock %}

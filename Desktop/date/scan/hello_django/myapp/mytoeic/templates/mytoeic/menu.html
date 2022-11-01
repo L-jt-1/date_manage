@@ -1,0 +1,18 @@
+<div class="menu">
+    <div class="menu-inner">
+      <ul>
+        <li><a href="{% url 'index' %}">Top</a></li>
+        <!--単語リスト-->
+        <li><a href="{% url 'n_wordlist' %}">名詞--英単語一覧</a></li>
+        <li><a href="{% url 'v_wordlist' %}">動詞--英単語一覧</a></li>
+        <li><a href="{% url 'adj_wordlist' %}">形容詞--英単語一覧</a></li>
+        <li><a href="{% url 'adv_wordlist' %}">副詞--英単語一覧</a></li>
+        <li><a href="{% url 'in_wordlist' %}">前置詞または従属接続詞--英単語一覧</a></li>
+        <li><a href="{% url 'other_wordlist' %}">他の品詞--英単語一覧</a></li>
+        <li><a href="{% url 'memo_wordlist' %}">メモ--英単語一覧</a></li>
+        <!--memo_wordlistに単語を登録-->
+        <li><a href="{% url 'wordregistration' %}">英単語登録フォーム</a></li>
+
+      </ul>
+    </div>
+  </div>

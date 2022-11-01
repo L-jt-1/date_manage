@@ -1,0 +1,26 @@
+{% extends 'toeicword/base.html' %}
+<!--base.htmlファイルを他のhtmlファイルで使用する場合は、1行目に「{ extends ‘toeicword/base.html’ }」を書く-->
+{% block title %}Word List{% endblock %}
+
+{% block content %}
+<article class="detail">
+  <div class="word-list">
+    <div class="page-name">
+      <h1>英単語一覧</h1>
+    </div>
+    <div class="word-detail">
+      {% for word in words %}
+        <div class="list">
+          <p style="width: 20%">{{ forloop.counter }} {{ word.en_word }}: {{ word.jp_word }}</p>  
+          <!--下：単語リストページのwordlist.htmlファイルに単語削除ページへ移動するためのタグ-->
+          <p class="jump"><a href="{% url 'worddelete' %}?del_id={{ word.id }}">削除</a></p>
+          <!--下：単語リストページのwordlist.htmlファイルに単語編集ページへ移動するためのタグ-->
+          <p class="jump"><a href="{% url 'wordedit' %}?ed_id={{ word.id }}">編集</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+{% endblock %}
+
+
